@@ -2,7 +2,7 @@
 """
 Created on Sat Mar 13 10:38:30 2021
 
-@author: SIMAMORA
+@author: MAJESTY
 """
 
 #example 1
