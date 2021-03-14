@@ -1,0 +1,45 @@
+#COVID-19 KNOWLEDGE BASE
+#A?PDP
+#B?Fever >= 38 Celcius
+#C?Cough
+#D?Flu
+#E?Sore Throat
+#F?Pneumonia mild or heavy according to clinical and/or image of radiology
+#G?Immunocompromised #(Kelainan Imun)
+#H?Having historical trip to China or region or country where the disease spread within 14 days before the first symptom.
+#I?Medical officer who get sick with same symptom after nursing patient with acute respiratory infection with unknown caused, without bothered by historical trip or live.
+#J?Patient with acute respiratory infection from mild to heavy.
+#K?Contacted with patient confirmed or probable Covid-19 within 14 days before symptom.
+#L?Having historical contact with infected animal (if it has been identified) within 14 days before symptom.
+#M?Working or visiting public health service which has cases of confirmed or probable COVID-19 in China or region or country that has been infected within 14 days before symptom.
+#N?ODP
+#RULE_3 PDP  J&(K|L|M|(H&B))
+J K L M H B A
+J K L M H - A
+J K L M - B A
+J K L M - - A
+J K L - H B A
+J K L - H - A
+J K L - - B A
+J K L - - - A
+J K - M H B A
+J K - M H - A
+J K - M - B A
+J K - M - - A
+J K - - H B A
+J K - - H - A
+J K - - - B A
+J K - - - - A
+J - L M H B A
+J - L M H - A
+J - L M - B A
+J - L M - - A
+J - L - H B A
+J - L - H - A
+J - L - - B A
+J - L - - - A
+J - - M H B A
+J - - M H - A
+J - - M - B A
+J - - M - - A
+J - - - H B A
