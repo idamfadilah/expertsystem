@@ -1,3 +1,4 @@
+analisis
 # Sistem-Pakar
 Sistem Pakar untuk cek penyakit pada tanaman cabe dan bawang
 a. Cara menjalankan sistemnya
