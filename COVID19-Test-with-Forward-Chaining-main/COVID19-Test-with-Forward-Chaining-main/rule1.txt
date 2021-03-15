@@ -1,0 +1,54 @@
+#COVID-19 KNOWLEDGE BASE
+#A?PDP
+#B?Fever >= 38 Celcius
+#C?Cough
+#D?Flu
+#E?Sore Throat
+#F?Pneumonia mild or heavy according to clinical and/or image of radiology
+#G?Immunocompromised #(Kelainan Imun)
+#H?Having historical trip to China or region or country where the disease spread within 14 days before the first symptom.
+#I?Medical officer who get sick with same symptom after nursing patient with acute respiratory infection with unknown caused, without bothered by historical trip or live.
+#J?Patient with acute respiratory infection from mild to heavy.
+#K?Contacted with patient confirmed or probable Covid-19 within 14 days before symptom.
+#L?Having historical contact with infected animal (if it has been identified) within 14 days before symptom.
+#M?Working or visiting public health service which has cases of confirmed or probable COVID-19 in China or region or country that has been infected within 14 days before symptom.
+#N?ODP
+#RULE_1 PDP  B&(C|D|E)&F
+B C D E F A
+B C D E - A
+B C D - F A
+B C - E F A
+B C - - F A
+B - D E F A
+B - D - F A
+B - - E F A
+#
+#  CARA KERJA PROGRAM (SERTA PEMBACAAN RULE):
+#   @'B', 'C', 'D', etc. menyatakan kondisi 'True'
+#   @'-' menyatakan kondisi 'False'
+#   @'A' atau 'N' adalah result dari semua kondisi premise
+#
+#   File main.py akan mengambilkan input dari 'index.html'
+#   lalu input akan dibandingkan dengan rule secara forward chaining
+#
+#   e.g: Misalnya kondisi B pasien menjawab 'Yes'. Value yang diambil
+#        akan menjadi 'B ', jika pasien menjawab 'No' value yang diambil
+#        akan menjadi '- '. Blank space dalam value digunakan untuk
+#        split jawaban menjadi array. Setelah semua pertanyaan dijawab,
+#        lalu kita bandingkan dengan KB 'rule1.txt', dan mencarikan semua
+#        kondisi dimana B itu True. Jika semua questionnaire sudah dijawab,
+#        dan kondisi pertama tidak ada yang sama dengan knowledge base, maka
+#        akan masuk ke rule berikutnya sampai rule ODP (rule 4). Jika tidak
+#        ada kondisi yang memenuhi rule ODP (rule 4), maka pasien dinyatakan
+#        negative COVID-19.
+#
+#
+#  CARA MENDAPATKAN RULE:
+#   1. Membuat logika matematika gejala COVID-19 berdasarkan artikel jurnal.
+#   2. Membuat truth table dalam 'Google Sheets' untuk mendapatkan semua
+#      kemungkinan truth values dari setiap premise.
+#   3. Menggunakan formula logika matematika (RULES berdasarkan artikel)
+#      untuk mendapatkan hasil akhir ('A' atau 'N') dari
+#      truth value setiap premise ('B', 'C', 'D', etc).
+#   4. Masukkan truth value yang bernilai 'True' untuk hasil akhir ('A' atau 'D')
+#      ke file '.txt' (seperti rule1.txt ini) dan akan dibaca oleh python.
