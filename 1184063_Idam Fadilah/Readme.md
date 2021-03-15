@@ -4,7 +4,9 @@ program ini berfungsi untuk merekomendasikan langkah terbaik pada giliran beriku
 menggunakan forward chaining untuk merekomendasikan langkah berdasarkan state yang ada, terdapat 3 parameter yaitu o, x , dan b.
 contoh state :
     | _ O _ | _ _ _ | _ _ _ | 
+    
     | _ O _ | _ _ _ | _ X _ | 
+    
     | _ X _ | _ _ _ | _ _ _ | 
 
 untuk blank area dimasukan sebagai b, o sebagai o dan x sebagai x
@@ -16,7 +18,9 @@ karena tidak adanya kemungkinan menang maka program merekomendasikan untuk langk
 
 contoh state jika kondisi memungkinkan menang
     | _ O _ | _ _ _ | _ X _ | 
+    
     | _ O _ | _ X _ | _ X _ | 
+    
     | _ _ _ | _ _ _ | _ _ _ | 
 
 perintah : python fc.py ttt.kb "o11 b12 x13 o21 x22 x23 b31 b32 b33 turn_o"
@@ -24,7 +28,9 @@ output : move_o31_can_win
 
 contoh state jika lawan mempunyai kemungkinan menang
     | _ O _ | _ _ _ | _ _ _ | 
+    
     | _ O _ | _ X _ | _ X _ | 
+    
     | _ _ _ | _ _ _ | _ _ _ | 
 perintah : python fc.py ttt.kb "o11 b12 b13 o21 x22 x23 b31 b32 b33 turn_o"
 output : move_x31_forced
